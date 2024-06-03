@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { Injectable, inject } from "@angular/core";
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -10,6 +13,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistroComponent {
   registerForm: FormGroup;
   submitted = false;
+  //http = inject(HttpClient);
+  authService = inject(AuthService);
+  router = inject(Router);
 
   constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
@@ -21,6 +27,8 @@ export class RegistroComponent {
 
   get f() { return this.registerForm.controls; }
 
+  errorMessage: string | null = null;
+
   onSubmit() {
     this.submitted = true;
   
@@ -29,6 +37,17 @@ export class RegistroComponent {
       return;
     }
   
+    //const rawForm = this.formBuilder.getRawValue()
+    this.authService
+      .register( this.registerForm.value.name, this.registerForm.value.email, this.registerForm.value.password)
+      .subscribe({
+        next:() => {
+      this.router.navigateByUrl('/');
+    },
+    error: (err) => {
+      this.errorMessage = err.code;
+    },
+  });
     // Capturar los valores del formulario
     const name = this.registerForm.value.name;
     const email = this.registerForm.value.email;
@@ -38,5 +57,8 @@ export class RegistroComponent {
     console.log('Email:', email);
     console.log('Password:', password);
   
+
+    // Lógica de envío si el formulario es válido
+    //alert('Formulario enviado correctamente.');
   }
 }

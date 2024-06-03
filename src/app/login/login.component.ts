@@ -1,5 +1,8 @@
 import { Component,  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { Injectable, inject } from "@angular/core";
 
 
 @Component({
@@ -10,6 +13,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
   submitted = false;
+  authService = inject(AuthService);
+  router = inject(Router);
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
@@ -20,6 +25,8 @@ export class LoginComponent {
 
   get f() { return this.loginForm.controls; }
 
+  errorMessage: string | null = null;
+
   onSubmit() {
     this.submitted = true;
   
@@ -27,6 +34,18 @@ export class LoginComponent {
     if (this.loginForm.invalid) {
       return;
     }
+
+    this.authService
+      .login( this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe({
+        next:() => {
+      this.router.navigateByUrl('/');
+    },
+    error: (err) => {
+      this.errorMessage = err.code;
+      alert('Contraseña maluca');
+    },
+  });
   
     // Capturar los valores del formulario
     const email = this.loginForm.value.email;
@@ -36,6 +55,6 @@ export class LoginComponent {
     console.log('Password:', password);
   
     // Lógica de envío si el formulario es válido
-    alert('Formulario enviado correctamente.');
+    //alert('Formulario enviado correctamente.');
   }
 }
