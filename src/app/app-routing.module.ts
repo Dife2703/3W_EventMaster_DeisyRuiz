@@ -7,8 +7,12 @@ import { StatusComponent } from './pages/status/status.component';
 import { ArchiveComponent } from './pages/archive/archive.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { DocumentationComponent } from './pages/documentation/documentation.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '', component: HomeComponent },
   { path: 'admin/status', component: StatusComponent },
   { path: 'admin/archives', component: ArchiveComponent },

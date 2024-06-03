@@ -1,0 +1,38 @@
+<div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Regístrate</h1>
+      </div>
+  
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="control-group">
+          <input type="text" class="login-field" placeholder="Nombre" formControlName="name" id="login-name">
+          <label class="login-field-icon fui-user" for="login-name"></label>
+          <div *ngIf="submitted && f['name'].errors" class="error-message">
+            <div *ngIf="f['name'].errors['required']">Nombre es requerido</div>
+          </div>
+        </div>
+  
+        <div class="control-group">
+          <input type="email" class="login-field" placeholder="Email" formControlName="email" id="login-email">
+          <label class="login-field-icon fui-user" for="login-email"></label>
+          <div *ngIf="submitted && f['email'].errors" class="error-message">
+            <div *ngIf="f['email'].errors['required']">Email es requerido</div>
+            <div *ngIf="f['email'].errors['email']">Email no es válido</div>
+          </div>
+        </div>
+  
+        <div class="control-group">
+          <input type="password" class="login-field" placeholder="Contraseña" formControlName="password" id="login-pass">
+          <label class="login-field-icon fui-lock" for="login-pass"></label>
+          <div *ngIf="submitted && f['password'].errors" class="error-message">
+            <div *ngIf="f['password'].errors['required']">Contraseña es requerida</div>
+            <div *ngIf="f['password'].errors['minlength']">Contraseña debe tener al menos 6 caracteres</div>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-primary btn-large btn-block">Registrarte</button>
+        <a class="login-link" href="login">¿Ya tienes una cuenta?  <strong style="color: #404e63;">Inicia Sesión aquí</strong></a>
+      </form>
+    </div>
+  </div>
