@@ -35,6 +35,9 @@ import { ContentComponent } from './components/content/content.component';
 import { SnippetComponent } from './components/docs/snippet/snippet.component';
 import { FolderIconComponent } from './components/docs/icons/folder-icon/folder-icon.component';
 import { AngularIconComponent } from './components/docs/icons/angular-icon/angular-icon.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,7 @@ import { AngularIconComponent } from './components/docs/icons/angular-icon/angul
     FolderIconComponent,
     AngularIconComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, provideFirebaseApp(() => initializeApp({"projectId":"eventmaster-51051","appId":"1:212462294196:web:56baaad6d9fb7f230cb3e1","storageBucket":"eventmaster-51051.appspot.com","apiKey":"AIzaSyDZ3h9zsJadPhQoHzJ1zmo7R5TzKkdN6t8","authDomain":"eventmaster-51051.firebaseapp.com","messagingSenderId":"212462294196","measurementId":"G-HXMSQ5T7H3"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   providers: [],
   bootstrap: [AppComponent],
 })
