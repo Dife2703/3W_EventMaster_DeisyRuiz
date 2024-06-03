@@ -29,29 +29,54 @@
             <div class="popup-content">
               <span class="close" (click)="closePopup()">&times;</span>
               <h2 class="title">Crear Nuevo Evento</h2>
-              <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+
+
+              <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
                 <label for="title">Título:</label>
-                <input type="text" id="title" name="title" [(ngModel)]="event.title" required><br><br>
-
+                <input type="text" id="title" formControlName="title">
+                <div *ngIf="eventForm.get('title')?.invalid && eventForm.get('title')?.touched">
+                  <span *ngIf="eventForm.get('title')?.errors?.['required']">El título es obligatorio</span>
+                </div><br><br>
+              
                 <label for="description">Descripción:</label>
-                <textarea id="description" name="description" [(ngModel)]="event.description" required></textarea><br><br>
-
+                <textarea id="description" formControlName="description"></textarea>
+                <div *ngIf="eventForm.get('description')?.invalid && eventForm.get('description')?.touched">
+                  <span *ngIf="eventForm.get('description')?.errors?.['required']">La descripción es obligatoria</span>
+                </div><br><br>
+              
                 <label for="date">Fecha:</label>
-                <input type="date" id="date" name="date" [(ngModel)]="event.date" required><br><br>
-
+                <input type="date" id="date" formControlName="date" [min]="minDate()">
+                <div *ngIf="eventForm.get('date')?.invalid && eventForm.get('date')?.touched">
+                  <span *ngIf="eventForm.get('date')?.errors?.['required']">La fecha es obligatoria</span>
+                </div><br><br>
+              
                 <label for="time">Hora:</label>
-                <input type="time" id="time" name="time" [(ngModel)]="event.time" required><br><br>
-
+                <input type="time" id="time" formControlName="time">
+                <div *ngIf="eventForm.get('time')?.invalid && eventForm.get('time')?.touched">
+                  <span *ngIf="eventForm.get('time')?.errors?.['required']">La hora es obligatoria</span>
+                </div><br><br>
+              
                 <label for="location">Ubicación:</label>
-                <input type="text" id="location" name="location" [(ngModel)]="event.location" required><br><br>
-
+                <input type="text" id="location" formControlName="location">
+                <div *ngIf="eventForm.get('location')?.invalid && eventForm.get('location')?.touched">
+                  <span *ngIf="eventForm.get('location')?.errors?.['required']">La ubicación es obligatoria</span>
+                </div><br><br>
+              
                 <label for="category">Categoría:</label>
-                <select id="category" name="category" [(ngModel)]="event.category" required>
+                <select id="category" formControlName="category">
                   <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-                </select><br><br>
-
+                </select>
+                <div *ngIf="eventForm.get('category')?.invalid && eventForm.get('category')?.touched">
+                  <span *ngIf="eventForm.get('category')?.errors?.['required']">La categoría es obligatoria</span>
+                </div><br><br>
+              
                 <button class="button" type="submit">Crear</button>
               </form>
+              
+              
+              
+              
+              
             </div>
           </div>
 
