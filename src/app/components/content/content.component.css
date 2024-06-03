@@ -33,9 +33,10 @@
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: #404e63;
     text-decoration: none;
     cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
   
   form label {
@@ -73,4 +74,21 @@
     align-items: center;
     text-align: center;
     font-weight: 600;
+  }
+  .popup-content select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>') no-repeat right 10px center;
+    background-color: white;
+    background-size: 8px 10px;
+  }
+  
+  .popup-content select:focus {
+    border-color: #404e63;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }

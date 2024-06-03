@@ -13,6 +13,9 @@ export class ContentComponent {
   }
 
   isPopupOpen = false;
+
+  categories: string[] = ['Conferencia', 'Taller', 'Seminario', 'Concierto', 'Webinar'];
+
   event = {
     title: '',
     description: '',

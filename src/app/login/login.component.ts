@@ -22,13 +22,20 @@ export class LoginComponent {
 
   onSubmit() {
     this.submitted = true;
-
-    // Si el formulario no es válido, detener la ejecución
+  
+    // Detener ejecución si el formulario no es válido
     if (this.loginForm.invalid) {
       return;
     }
-
-    // // Si el formulario es válido, puedes realizar la lógica de envío aquí
+  
+    // Capturar los valores del formulario
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+  
+    console.log('Email:', email);
+    console.log('Password:', password);
+  
+    // Lógica de envío si el formulario es válido
     alert('Formulario enviado correctamente.');
   }
 }

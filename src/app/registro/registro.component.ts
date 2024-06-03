@@ -23,12 +23,21 @@ export class RegistroComponent {
   onSubmit() {
     this.submitted = true;
 
-    // Si el formulario no es válido, detener la ejecución
+    // Detener ejecución si el formulario no es válido
     if (this.registerForm.invalid) {
       return;
     }
 
-    // Si el formulario es válido, puedes realizar la lógica de envío aquí
+    // Capturar los valores del formulario
+    const name = this.registerForm.value.name;
+    const email = this.registerForm.value.email;
+    const password = this.registerForm.value.password;
+
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Password:', password);
+
+    // Lógica de envío si el formulario es válido
     alert('Formulario enviado correctamente.');
   }
 }
