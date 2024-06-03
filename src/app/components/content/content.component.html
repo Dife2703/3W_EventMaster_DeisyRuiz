@@ -46,7 +46,9 @@
                 <input type="text" id="location" name="location" [(ngModel)]="event.location" required><br><br>
 
                 <label for="category">Categoría:</label>
-                <input type="text" id="category" name="category" [(ngModel)]="event.category" required><br><br>
+                <select id="category" name="category" [(ngModel)]="event.category" required>
+                  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                </select><br><br>
 
                 <button class="button" type="submit">Crear</button>
               </form>
@@ -65,20 +67,16 @@
         <div class="p-2">
           <div class="rounded-3xl p-4 bg-[#fee4cb]">
             <div class="justify-b flex items-center">
-              <span class="text-sm">December 10, 2020</span>
+              <span class="text-sm">Fecha</span>
             </div>
             <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
+              <p class="text-base font-bold opacity-70">Titulo</p>
+              <p class="mt-2 text-sm opacity-70">Descripción</p>
             </div>
             <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
-              >
-                <span class="block h-1 w-6/12 rounded-md bg-yellow-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">60%</p>
+              <p class="m-0 text-sm font-bold">Ubicación</p>
+             
+              <p class="m-0 text-right text-sm font-bold">categoría</p>
             </div>
             <div class="relative flex justify-between pt-4">
               <div class="flex items-center">
