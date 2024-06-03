@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
+
 // dashboard components
 import { LayoutComponent } from './dashboard/layout/layout.component';
 import { TopBarComponent } from './dashboard/top-bar/top-bar.component';
@@ -38,6 +40,11 @@ import { AngularIconComponent } from './components/docs/icons/angular-icon/angul
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+//Login and registre components
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -74,6 +81,10 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     ContentComponent,
     FolderIconComponent,
     AngularIconComponent,
+
+    //Login and registre
+    LoginComponent,
+    RegistroComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, provideFirebaseApp(() => initializeApp({"projectId":"eventmaster-51051","appId":"1:212462294196:web:56baaad6d9fb7f230cb3e1","storageBucket":"eventmaster-51051.appspot.com","apiKey":"AIzaSyDZ3h9zsJadPhQoHzJ1zmo7R5TzKkdN6t8","authDomain":"eventmaster-51051.firebaseapp.com","messagingSenderId":"212462294196","measurementId":"G-HXMSQ5T7H3"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   providers: [],
