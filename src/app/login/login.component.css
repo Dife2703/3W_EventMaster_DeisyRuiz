@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    }
+    
+    *:focus {
+        outline: none;
+    }
+    body {
+    font-family: Arial;
+    padding: 50px;
+    }
+    .login {
+    margin: 20px auto;
+    width: 700px;
+    }
+    .login-screen {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 30px
+    }
+    
+    .app-title {
+    text-align: center;
+    color: #777;
+    font-size: 36px;
+    font-weight: 600;
+    margin: 20px;
+    }
+    
+    .login-form {
+    text-align: center;
+    }
+    .control-group {
+    margin-bottom: 10px;
+    }
+    .login-field{
+        padding-left: 15px;
+    }
+    
+    input {
+    text-align: left;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 500px;
+    transition: border .5s;
+    margin-bottom: 5px!important;
+    margin: 0 auto !important;
+    display: block;
+    }
+    
+    input:focus {
+    border: 2px solid #404e63;
+    box-shadow: none;
+    }
+    
+    .btn {
+      border: 2px solid transparent;
+      background: #404e63;
+      color: #ffffff;
+      font-size: 22px;
+      line-height: 25px;
+      padding: 10px 0;
+      text-decoration: none;
+      text-shadow: none;
+      border-radius: 15px;
+      box-shadow: none;
+      transition: 0.25s;
+      display: block;
+      width: 500px;
+      margin-top: 15px !important;
+      margin: 0 auto;
+    }
+    
+    .btn:hover {
+      background-color: #111827;
+    }
+    
+    .login-link {
+      font-size: 18px;
+      color: #444;
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .error-message{
+      color: red;
+      text-align: center;
+      font-size: 16px;
+    }

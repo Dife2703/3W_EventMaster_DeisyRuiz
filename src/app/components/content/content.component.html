@@ -20,24 +20,44 @@
         </div>
       </div>
       <div class="mt-4 flex items-center md:mt-0">
-        <button class="ml-2 bg-gray-700 p-2 text-white" title="Grid View">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="3" y="3" width="7" height="7" />
-            <rect x="14" y="3" width="7" height="7" />
-            <rect x="14" y="14" width="7" height="7" />
-            <rect x="3" y="14" width="7" height="7" />
-          </svg>
-        </button>
+
+
+
+        <button class="button" (click)="openPopup()">Crear Evento</button>
+
+          <div *ngIf="isPopupOpen" class="popup">
+            <div class="popup-content">
+              <span class="close" (click)="closePopup()">&times;</span>
+              <h2 class="title">Crear Nuevo Evento</h2>
+              <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" [(ngModel)]="event.title" required><br><br>
+
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" [(ngModel)]="event.description" required></textarea><br><br>
+
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date" [(ngModel)]="event.date" required><br><br>
+
+                <label for="time">Hora:</label>
+                <input type="time" id="time" name="time" [(ngModel)]="event.time" required><br><br>
+
+                <label for="location">Ubicación:</label>
+                <input type="text" id="location" name="location" [(ngModel)]="event.location" required><br><br>
+
+                <label for="category">Categoría:</label>
+                <input type="text" id="category" name="category" [(ngModel)]="event.category" required><br><br>
+
+                <button class="button" type="submit">Crear</button>
+              </form>
+            </div>
+          </div>
+
+
+
+
+
+
       </div>
     </div>
     <div class="flex flex-wrap">
