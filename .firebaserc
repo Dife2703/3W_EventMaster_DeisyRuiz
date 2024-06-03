@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "eventmaster-51051"
+  },
+  "targets": {
+    "eventmaster-51051": {
+      "hosting": {
+        "my-app": [
+          "eventmasteruv"
+        ]
+      }
+    }
+  }
+}
