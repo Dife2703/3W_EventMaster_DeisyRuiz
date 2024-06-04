@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Injectable, inject } from "@angular/core";
@@ -29,11 +31,12 @@ export class RegistroComponent {
 
   onSubmit() {
     this.submitted = true;
-
+  
     // Detener ejecución si el formulario no es válido
     if (this.registerForm.invalid) {
       return;
     }
+  
     //const rawForm = this.formBuilder.getRawValue()
     this.authService
       .register( this.registerForm.value.name, this.registerForm.value.email, this.registerForm.value.password)
@@ -49,10 +52,11 @@ export class RegistroComponent {
     const name = this.registerForm.value.name;
     const email = this.registerForm.value.email;
     const password = this.registerForm.value.password;
-
+  
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
+  
 
     // Lógica de envío si el formulario es válido
     //alert('Formulario enviado correctamente.');
