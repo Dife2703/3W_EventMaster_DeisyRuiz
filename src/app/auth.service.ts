@@ -5,6 +5,7 @@ import {
     signInWithEmailAndPassword, 
     updateProfile, 
     user 
+    user
 } from "@angular/fire/auth";
 //import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { Observable, from } from "rxjs";
