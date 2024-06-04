@@ -4,7 +4,6 @@ import {
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
     updateProfile, 
-    user 
     user
 } from "@angular/fire/auth";
 //import { createUserWithEmailAndPassword } from "@firebase/auth";
