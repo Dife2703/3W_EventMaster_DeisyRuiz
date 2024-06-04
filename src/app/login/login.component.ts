@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Injectable, inject } from "@angular/core";
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +43,11 @@ export class LoginComponent {
     },
     error: (err) => {
       this.errorMessage = err.code;
-      alert('Contraseña maluca');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Usuario o contraseña incorrecta'
+      });
     },
   });
   

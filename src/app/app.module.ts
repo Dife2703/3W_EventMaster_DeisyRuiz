@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
 
 // dashboard components
@@ -86,8 +87,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegistroComponent,
   ],
   imports: [BrowserModule, AppRoutingModule,ReactiveFormsModule, FormsModule, provideFirebaseApp(() => initializeApp({"projectId":"eventmaster-51051","appId":"1:212462294196:web:56baaad6d9fb7f230cb3e1","storageBucket":"eventmaster-51051.appspot.com","apiKey":"AIzaSyDZ3h9zsJadPhQoHzJ1zmo7R5TzKkdN6t8","authDomain":"eventmaster-51051.firebaseapp.com","messagingSenderId":"212462294196","measurementId":"G-HXMSQ5T7H3"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    registerLocaleData(localeEs);
+  }
+}
