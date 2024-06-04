@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { RegistroComponent } from 'src/app/registro/registro.component';
 
 
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
