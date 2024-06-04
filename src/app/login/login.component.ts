@@ -39,7 +39,7 @@ export class LoginComponent {
       .login( this.loginForm.value.email, this.loginForm.value.password)
       .subscribe({
         next:() => {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/home');
     },
     error: (err) => {
       this.errorMessage = err.code;

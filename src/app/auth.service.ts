@@ -9,6 +9,7 @@ import {
 //import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { Observable, from } from "rxjs";
 import { UserInterface } from "./user.interface";
+import { map } from 'rxjs/operators';
 
 @Injectable({
         providedIn: 'root'
@@ -19,6 +20,13 @@ export class AuthService {
     user$ = user(this.firebaseAuth)
     currentUserSig = signal <UserInterface | null | undefined>(undefined)
     
+    isAuthenticated(): Observable<boolean> {
+        return this.user$.pipe(
+          map(user => !!user)
+        );
+      }
+    
+
     register(
         username: string,
         email: string,
@@ -42,5 +50,6 @@ export class AuthService {
         ).then(() => {});
         return from(promise);
     }
+
 
 }

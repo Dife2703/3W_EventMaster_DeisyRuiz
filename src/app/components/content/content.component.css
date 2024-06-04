@@ -118,9 +118,5 @@
     display: block;
     margin: 0 auto;
   }
-  @media (max-width: 480px) {
-    .date{
-      font-size: 15px;
-    }
-  }
+  
 
