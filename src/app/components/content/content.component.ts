@@ -1,7 +1,7 @@
 import { Component, Input, } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
-
+import { RegistroComponent } from 'src/app/registro/registro.component';
 
 
 @Component({

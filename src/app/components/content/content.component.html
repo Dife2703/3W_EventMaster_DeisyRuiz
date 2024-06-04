@@ -65,7 +65,7 @@
         <div class="p-2">
           <div class="rounded-3xl p-4" [ngStyle]="{'background-color': getCardColor(i)}">
             <div style="flex-wrap: wrap;">
-              <span class="text-sm"><strong>Fecha:</strong> {{ event.date }}</span>
+              <span class="text-s"><strong>Fecha:</strong> {{ event.date }}</span>
               
             </div>
            
@@ -73,12 +73,13 @@
             
             <div class="mb-4 mt-5 text-center">
               <p class="text-base font-bold opacity-70">{{ event.title }}</p>
-              <p class="mt-2 text-sm opacity-70">{{ event.description }}</p>
+              <p class="mt-2 text-s opacity-70">{{ event.description }}</p>
             </div>
             <div>
-              <p class="m-0 text-sm "><strong>Ubicación:</strong>  {{ event.location }}</p>
-              <p class="m-0 text-sm "><strong>Categoría: </strong> {{ event.category }}</p>
-              <p class="m-0 text-sm "><strong>Hora: </strong> {{ event.time }}</p>
+              <p class="m-0 text-s "><strong>Ubicación:</strong>  {{ event.location }}</p>
+              <p class="m-0 text-s "><strong>Categoría: </strong> {{ event.category }}</p>
+              <p class="m-0 text-s "><strong>Hora: </strong> {{ event.time }}</p>
+              <p class="m-0 text-s "><strong>Creado por: </strong> ñordi </p>
             </div>
             <div >
               <div >

@@ -11,14 +11,14 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  
+  { path: '', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'admin/status', component: StatusComponent },
   { path: 'admin/archives', component: ArchiveComponent },
   { path: 'admin/credits', component: CreditComponent },
   { path: 'admin/settings', component: SettingsComponent },
-  { path: 'admin/documentation', component: DocumentationComponent },
 ];
 
 @NgModule({

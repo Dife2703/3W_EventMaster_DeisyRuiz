@@ -1,2 +1,14 @@
 
-<router-outlet></router-outlet>
+<ng-template [ngIf]="authService.currentUserSig() == null">
+    <div>
+        <a routerLink="/">Login</a>
+    </div>
+  </ng-template>
+  
+  <ng-template [ngIf]="authService.currentUserSig()">
+    <div>
+        <span (click)="logout()">Logout</span>
+    </div>
+  </ng-template>
+  
+  <router-outlet></router-outlet>
