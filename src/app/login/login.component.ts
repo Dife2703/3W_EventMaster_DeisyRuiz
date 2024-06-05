@@ -39,6 +39,12 @@ export class LoginComponent {
       .login( this.loginForm.value.email, this.loginForm.value.password)
       .subscribe({
         next:() => {
+          console.log("esto te dare")
+          console.log(this.authService.login( this.loginForm.value.email, this.loginForm.value.password).subscribe.name);
+          const verificacion = (): boolean => {
+            return true;
+          };
+          // verificacion();
       this.router.navigateByUrl('/home');
     },
     error: (err) => {
@@ -50,15 +56,21 @@ export class LoginComponent {
       });
     },
   });
+
+
   
     // Capturar los valores del formulario
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
   
+
+
+
     console.log('Email:', email);
     console.log('Password:', password);
   
     // Lógica de envío si el formulario es válido
     //alert('Formulario enviado correctamente.');
+    
   }
 }

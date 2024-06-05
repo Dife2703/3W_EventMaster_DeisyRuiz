@@ -4,7 +4,7 @@ import { RouterLink, RouterOutlet} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-
+import { TopBarComponent } from './dashboard/top-bar/top-bar.component';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
         this.authService.currentUserSig.set(null);
       }
       console.log(this.authService.currentUserSig());
+
     });
   }
   logout(): void {
