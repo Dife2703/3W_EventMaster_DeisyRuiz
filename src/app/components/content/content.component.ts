@@ -102,14 +102,14 @@ export class ContentComponent implements OnInit, OnDestroy {
 
 
   async onSubmit() {
-    // if (!this.event.title || !this.event.description || !this.event.date || !this.event.time || !this.event.location || !this.event.category) {
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Campos incompletos',
-    //     text: 'Por favor, llene todos los campos.'
-    //   });
-    //   return;
-    // }
+    if (!this.event.title || !this.event.description || !this.event.date || !this.event.time || !this.event.location || !this.event.category) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Por favor, llene todos los campos.'
+      });
+      return;
+    }
 
     const response = await this.formatoService.addFormato(this.event);
     console.log(response);
@@ -141,7 +141,9 @@ export class ContentComponent implements OnInit, OnDestroy {
       const response = await this.formatoService.deleteFormato(this.filteredEvents[index].id);
       console.log(response);
       this.events = this.events.filter(event => event.id !== this.filteredEvents[index].id);
+      
       this.applyFilters(); // Update the filtered events list
+      
     } catch (error) {
       console.error("Error deleting event:", error);
     }
