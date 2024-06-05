@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
-import {DashboardService} from "../dashboard.service";
-import { AuthService } from 'src/app/auth.service';
-import { Output, EventEmitter } from '@angular/core';
+import { FilterService } from 'src/app/services/filter.service';
+import { DashboardService } from '../dashboard.service';
+
 @Component({
-  selector: 'top-bar',
+  selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
+  styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent {
-  constructor(private dashboard: DashboardService, authService: AuthService) {
-  }
-  @Output() logoutEvent = new EventEmitter<void>();
+  categories: string[] = ['Conferencia', 'Celebraciones y Fiestas', 'Evento cultural', 'Evento deportivo', 'Taller', 'Otro'];
 
-  onLogout(): void {
-    this.logoutEvent.emit();
+  constructor(private dashboard: DashboardService, private filterService: FilterService) {}
+
+  onCategoryChange(event: any) {
+    this.filterService.setCategoryFilter(event.target.value);
+  }
+
+  onDateChange(event: any) {
+    this.filterService.setDateFilter(event.target.value);
   }
   openSidebar(){
     this.dashboard.openSidebar()
   }
-}
+
+} 

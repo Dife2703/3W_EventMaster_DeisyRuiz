@@ -14,75 +14,53 @@
           <div class="text-2xl font-bold">24</div>
           <div class="">Mis encuentros</div>
         </div>
-       
       </div>
       <div class="mt-4 flex items-center md:mt-0">
-
-
         <button class="button" (click)="openPopup()">Crear Evento</button>
-
-          <div *ngIf="isPopupOpen" class="popup">
-            <div class="popup-content">
-              <span class="close" (click)="closePopup()">&times;</span>
-              <h2 class="title">Crear Nuevo Evento</h2>
-
-
-              <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
-                <label for="title">Título:</label>
-                <input type="text" id="title" name="title" [(ngModel)]="event.title" required><br><br>
-              
-                <label for="description">Descripción:</label>
-                <textarea id="description" name="description" [(ngModel)]="event.description" required></textarea><br><br>
-              
-                <label for="date">Fecha:</label>
-                <input type="date" id="date" name="date" [(ngModel)]="event.date" [min]="minDate()" required><br><br>
-              
-                <label for="time">Hora:</label>
-                <input type="time" id="time" name="time" [(ngModel)]="event.time" required><br><br>
-              
-                <label for="location">Ubicación:</label>
-                <input type="text" id="location" name="location" [(ngModel)]="event.location" required><br><br>
-              
-                <label for="category">Categoría:</label>
-                <select id="category" name="category" [(ngModel)]="event.category" required>
-                  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-                </select><br><br>
-              
-                <button class="button" type="submit">Crear</button>
-              </form>
-                  
-            </div>
+        <div *ngIf="isPopupOpen" class="popup">
+          <div class="popup-content">
+            <span class="close" (click)="closePopup()">&times;</span>
+            <h2 class="title">Crear Nuevo Evento</h2>
+            <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+              <label for="title">Título:</label>
+              <input type="text" id="title" name="title" [(ngModel)]="event.title" required><br><br>
+              <label for="description">Descripción:</label>
+              <textarea id="description" name="description" [(ngModel)]="event.description" required></textarea><br><br>
+              <label for="date">Fecha:</label>
+              <input type="date" id="date" name="date" [(ngModel)]="event.date" [min]="minDate()" required><br><br>
+              <label for="time">Hora:</label>
+              <input type="time" id="time" name="time" [(ngModel)]="event.time" required><br><br>
+              <label for="location">Ubicación:</label>
+              <input type="text" id="location" name="location" [(ngModel)]="event.location" required><br><br>
+              <label for="category">Categoría:</label>
+              <select id="category" name="category" [(ngModel)]="event.category" required>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+              </select><br><br>
+              <button class="button" type="submit">Crear</button>
+            </form>
           </div>
-
-
-
-
-
-
+        </div>
       </div>
     </div>
     <div class="flex flex-wrap">
-      <div *ngFor="let event of events; let i = index" class="w-full md:w-3/12">
+      <div *ngFor="let event of filteredEvents; let i = index" class="w-full md:w-3/12">
         <div class="p-2">
           <div class="rounded-3xl p-4" [ngStyle]="{'background-color': getCardColor(i)}">
             <div style="flex-wrap: wrap;">
-                <span class="text-s"><strong>Fecha:</strong> {{ event.date }}</span>
+              <span class="text-s"><strong>Fecha:</strong> {{ event.date }}</span>
             </div>
-
             <div class="mb-4 mt-5 text-center">
-                <p class="text-base font-bold opacity-70">{{ event.title }}</p>
-                <div class="overflow-hidden" >
-                    <p class="mt-2 text-s opacity-70">{{ event.description }}</p>
-                </div>
+              <p class="text-base font-bold opacity-70">{{ event.title }}</p>
+              <div class="overflow-hidden">
+                <p class="mt-2 text-s opacity-70">{{ event.description }}</p>
+              </div>
             </div>
-
             <div>
-                <p class="m-0 text-s"><strong>Ubicación:</strong> {{ event.location }}</p>
-                <p class="m-0 text-s"><strong>Categoría: </strong> {{ event.category }}</p>
-                <p class="m-0 text-s"><strong>Hora: </strong> {{ event.time }}</p>
-                <p class="m-0 text-s"><strong>Creado por: </strong> ñordi </p>
+              <p class="m-0 text-s"><strong>Ubicación:</strong> {{ event.location }}</p>
+              <p class="m-0 text-s"><strong>Categoría: </strong> {{ event.category }}</p>
+              <p class="m-0 text-s"><strong>Hora: </strong> {{ event.time }}</p>
+              <p class="m-0 text-s"><strong>Creado por: </strong> ñordi </p>
             </div>
-
             <div>
                 <div class="container">
                     <button class="button-asistir">Asistir</button>
@@ -90,11 +68,9 @@
                     <button class="button-asistir" (click)=" onClickEdit(i) ">Editar Evento</button>
                 </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
-
-
   </div>
 </div>

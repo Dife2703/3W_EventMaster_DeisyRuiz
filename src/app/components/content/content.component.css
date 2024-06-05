@@ -102,7 +102,7 @@
     text-align: right;
   }
 
-  .button-asistir{
+  .button-asistir {
     border: 2px solid transparent;
     background: #404e63;
     color: #ffffff;
@@ -111,7 +111,6 @@
     padding: 10px 0;
     margin-top: 20px !important;
     margin-bottom: 10px !important;
-    margin-left: 40px !important;
     margin-right: 20px !important;
     text-decoration: none;
     text-shadow: none;
@@ -121,12 +120,11 @@
     width: 130px;
     /* display: inline-block; */
   }
-  .container{
-    display: inline-block;
-    flex-direction: column;
+  
+  .container {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    
   }
-  
 
