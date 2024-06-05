@@ -27,7 +27,8 @@ export class ContentComponent implements OnInit, OnDestroy {
     date: '',
     time: '',
     location: '',
-    category: ''
+    category: '',
+    people: ''
   };
 
   private categoryFilterSubscription: Subscription | null = null;
@@ -98,6 +99,8 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.isPopupOpen = false;
   }
 
+
+
   async onSubmit() {
     // if (!this.event.title || !this.event.description || !this.event.date || !this.event.time || !this.event.location || !this.event.category) {
     //   Swal.fire({
@@ -120,7 +123,8 @@ export class ContentComponent implements OnInit, OnDestroy {
       date: '',
       time: '',
       location: '',
-      category: ''
+      category: '',
+      people: ''
     };
 
     Swal.fire({
@@ -154,8 +158,11 @@ export class ContentComponent implements OnInit, OnDestroy {
     date: this.events[index].date,
     time: this.events[index].time,
     location: this.events[index].location,
-    category: this.events[index].category
+    category: this.events[index].category,
+    people: this.events[index].people
   };
+
+  
 
   console.log("prueba exhaustiva");
   console.log("title: ",this.event.title);
@@ -167,7 +174,7 @@ export class ContentComponent implements OnInit, OnDestroy {
 
     console.log("Esta es mi categoria actual "+ this.event.category);
    this.formatoService.editFormato(this.events[index].id,this.event);
-   
+   this.onClickDelete(index);
   //  this.onClickDelete(this.events[index].id) 
    console.log("aquí esta el cambio del edit",this.event);
 
@@ -193,6 +200,44 @@ export class ContentComponent implements OnInit, OnDestroy {
     //   this.events = formato.map(event => ({ ...event }));
     // });
   }
+
+  onClickAsistir(index: number) {
+    console.log("onClickAsistir TOCANDO");
+    Swal.fire({
+      title: 'Ingresa tu correo electrónico:',
+      input: 'email',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'Cancelar',
+      showLoaderOnConfirm: true,
+      preConfirm: (email) => {
+        // Aquí puedes guardar el correo electrónico en una variable o hacer cualquier otra acción
+        console.log('Correo electrónico ingresado:' + email);
+
+        this.event = {
+          title: this.events[index].title,
+          description: this.events[index].description,
+          date: this.events[index].date,
+          time: this.events[index].time,
+          location: this.events[index].location,
+          category: this.events[index].category,
+          people: this.events[index].people + " " + email
+        };
+        this.formatoService.editFormato(this.events[index].id,this.event);
+        // this.onClickDelete(index);
+
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    });
+
+    
+
+    
+  }
+
 
   getCardColor(index: number): string {
     return this.colors[index % this.colors.length];
