@@ -7,4 +7,5 @@ export default interface Formato {
     time: string;
     location: string;
     category: string;
+    people?: string;
 } 
