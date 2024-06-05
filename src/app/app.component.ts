@@ -1,8 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { TopBarComponent } from './dashboard/top-bar/top-bar.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,8 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
   title = 'my-app';
   authService = inject(AuthService)
-
+  constructor(private router: Router) {}
+  
   ngOnInit(): void {
     this.authService.user$.subscribe(user => {
       if (user) {
@@ -23,9 +26,11 @@ export class AppComponent implements OnInit {
         this.authService.currentUserSig.set(null);
       }
       console.log(this.authService.currentUserSig());
+
     });
   }
   logout(): void {
+    this.router.navigate(['/']);
     console.log('logout');
   }
 }

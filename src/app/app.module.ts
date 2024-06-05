@@ -45,7 +45,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AuthService } from './auth.service';
 @NgModule({
   declarations: [
     AppComponent,
