@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import Formato from '../interfaces/formato.interface';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -22,6 +22,11 @@ export class FormatoService {
   deleteFormato(id: String) {
     const formatoDocRef = doc(this.firestore, `cards/${id}`);
     return deleteDoc(formatoDocRef);
+  }
+
+  editFormato(id: string, formato: Partial<Formato>) {
+    const formatoDocRef = doc(this.firestore, `cards/${id}`);
+    return updateDoc(formatoDocRef, formato);
   }
 
 }
