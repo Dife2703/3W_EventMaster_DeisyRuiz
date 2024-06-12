@@ -1,0 +1,26 @@
+Comandos para iniciar
+npm i --save-dev @types/jquery
+
+npm install 
+npm install sweetalert2
+npm install firebase
+npm i -g firebase-tools@12.9.1
+npm install -g firebase-tools
+
+Para hacer deploy en el host:
+npm run build
+firebase init
+seleccionar hosting y firestore
+luego seleccionar el proyecto existente
+decir que yes
+decir que yes
+cambiar la ruta (public) a dist/my-app
+luego decir que yes
+luego decir que no
+luego decir que no
+firebase deploy
+
+
+
+otro comando:
+ng add @angular/fire
